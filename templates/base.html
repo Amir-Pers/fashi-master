@@ -222,10 +222,10 @@
                     <div class="footer-widget">
                         <h5>Information</h5>
                         <ul>
-                            <li><a href="#">About Us</a></li>
+                            <li><a href="{% url 'website:about-us' %}">About Us</a></li>
                             <li><a href="{% url 'website:check-out' %}">Checkout</a></li>
                             <li><a href="{% url 'website:contact' %}">Contact</a></li>
-                            <li><a href="#">Serivius</a></li>
+                            <li><a href="{% url 'website:services' %}">Services</a></li>
                         </ul>
                     </div>
                 </div>
@@ -233,7 +233,7 @@
                     <div class="footer-widget">
                         <h5>My Account</h5>
                         <ul>
-                            <li><a href="#">My Account</a></li>
+                            <li><a href="{% url 'website:my-account' %}">My Account</a></li>
                             <li><a href="{% url 'website:contact' %}">Contact</a></li>
                             <li><a href="{% url 'website:shopping-cart' %}">Shopping Cart</a></li>
                             <li><a href="{% url 'website:shop' %}">Shop</a></li>

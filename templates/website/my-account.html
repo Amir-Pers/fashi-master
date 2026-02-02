@@ -1,0 +1,148 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Breadcrumb -->
+<div class="breacrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb-text">
+                    <a href="./index.html"><i class="fa fa-home"></i> Home</a>
+                    <span>My Account</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- My Account Section -->
+<section class="checkout-section spad">
+    <div class="container">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-3">
+                <div class="checkout-content">
+                    <h4>Account Menu</h4>
+                    <ul>
+                        <li><a href="#profile">Profile</a></li>
+                        <li><a href="#orders">My Orders</a></li>
+                        <li><a href="#addresses">Addresses</a></li>
+                        <li><a href="#password">Change Password</a></li>
+                        <li><a href="./login.html">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="col-lg-9">
+                <!-- Profile -->
+                <div id="profile" class="checkout-form">
+                    <h4>Profile Information</h4>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <label>First Name</label>
+                            <input type="text" placeholder="John">
+                        </div>
+                        <div class="col-lg-6">
+                            <label>Last Name</label>
+                            <input type="text" placeholder="Doe">
+                        </div>
+                        <div class="col-lg-6">
+                            <label>Email</label>
+                            <input type="email" placeholder="john@example.com">
+                        </div>
+                        <div class="col-lg-6">
+                            <label>Phone</label>
+                            <input type="text" placeholder="+1 234 567 890">
+                        </div>
+                    </div>
+                    <button class="primary-btn mt-3">Save Changes</button>
+                </div>
+
+                <hr>
+
+                <!-- Orders -->
+                <div id="orders" class="checkout-form">
+                    <h4>My Orders</h4>
+                    <div class="cart-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#1023</td>
+                                    <td>2025-01-12</td>
+                                    <td>Completed</td>
+                                    <td>$120.00</td>
+                                </tr>
+                                <tr>
+                                    <td>#1024</td>
+                                    <td>2025-01-20</td>
+                                    <td>Processing</td>
+                                    <td>$75.00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <hr>
+
+                <!-- Addresses -->
+                <div id="addresses" class="checkout-form">
+                    <h4>Saved Addresses</h4>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <label>Address</label>
+                            <input type="text" placeholder="123 Main Street, New York">
+                        </div>
+                        <div class="col-lg-6">
+                            <label>City</label>
+                            <input type="text" placeholder="New York">
+                        </div>
+                        <div class="col-lg-6">
+                            <label>Postal Code</label>
+                            <input type="text" placeholder="10001">
+                        </div>
+                        <div class="col-lg-6">
+                            <label>Country</label>
+                            <input type="text" placeholder="USA">
+                        </div>
+                    </div>
+                    <button class="primary-btn mt-3">Update Address</button>
+                </div>
+
+                <hr>
+
+                <!-- Change Password -->
+                <div id="password" class="checkout-form">
+                    <h4>Change Password</h4>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <label>Current Password</label>
+                            <input type="password">
+                        </div>
+                        <div class="col-lg-6">
+                            <label>New Password</label>
+                            <input type="password">
+                        </div>
+                        <div class="col-lg-12">
+                            <label>Confirm New Password</label>
+                            <input type="password">
+                        </div>
+                    </div>
+                    <button class="primary-btn mt-3">Update Password</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

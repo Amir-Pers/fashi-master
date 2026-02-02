@@ -30,6 +30,15 @@ def login(request):
 def product(request):
     return render(request, 'website/product.html')
 
+def about_us(request):
+    return render(request, 'website/about-us.html')
+
+def services(request):
+    return render(request, 'website/services.html')
+
+def my_account(request):
+    return render(request, 'website/my-account.html')
+
 
 
 def test(request):

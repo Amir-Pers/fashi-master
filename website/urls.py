@@ -13,6 +13,9 @@ urlpatterns = [
     path('register/', register, name='register'),
     path('login/', login, name='login'),
     path('product/', product, name='product'),
+    path('about-us/', about_us, name='about-us'),
+    path('services/', services, name='services'),
+    path('my-account/', my_account, name='my-account'),
 
     path('test/', test, name='test'),
 ]
