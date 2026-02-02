@@ -32,7 +32,6 @@ def product(request):
 
 
 
-
 def test(request):
     return HttpResponse('<h1>salam</h1>')
 

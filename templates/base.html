@@ -69,7 +69,7 @@
                 <div class="row">
                     <div class="col-lg-2 col-md-2">
                         <div class="logo">
-                            <a href="./index.html">
+                            <a href="{% url 'website:index' %}">
                                 <img src="{% static 'img/logo.png' %}" alt="">
                             </a>
                         </div>
@@ -163,8 +163,8 @@
                 </div>
                 <nav class="nav-menu mobile-menu">
                     <ul>
-                        <li class="active"><a href="./index.html">Home</a></li>
-                        <li><a href="./shop.html">Shop</a></li>
+                        <li class="active"><a href="{% url 'website:index' %}">Home</a></li>
+                        <li><a href="{% url 'website:shop' %}">Shop</a></li>
                         <li><a href="#">Collection</a>
                             <ul class="dropdown">
                                 <li><a href="#">Men's</a></li>
@@ -172,16 +172,16 @@
                                 <li><a href="#">Kid's</a></li>
                             </ul>
                         </li>
-                        <li><a href="./blog.html">Blog</a></li>
-                        <li><a href="./contact.html">Contact</a></li>
+                        <li><a href="{% url 'blog:index' %}">Blog</a></li>
+                        <li><a href="{% url 'website:contact' %}">Contact</a></li>
                         <li><a href="#">Pages</a>
                             <ul class="dropdown">
-                                <li><a href="./blog-details.html">Blog Details</a></li>
-                                <li><a href="./shopping-cart.html">Shopping Cart</a></li>
-                                <li><a href="./check-out.html">Checkout</a></li>
-                                <li><a href="./faq.html">Faq</a></li>
-                                <li><a href="./register.html">Register</a></li>
-                                <li><a href="./login.html">Login</a></li>
+                                <li><a href="{% url 'blog:blog-details' %}">Blog Details</a></li>
+                                <li><a href="{% url 'website:shopping-cart' %}">Shopping Cart</a></li>
+                                <li><a href="{% url 'website:check-out' %}">Checkout</a></li>
+                                <li><a href="{% url 'website:faq' %}">Faq</a></li>
+                                <li><a href="{% url 'website:register' %}">Register</a></li>
+                                <li><a href="{% url 'website:login' %}">Login</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -223,8 +223,8 @@
                         <h5>Information</h5>
                         <ul>
                             <li><a href="#">About Us</a></li>
-                            <li><a href="#">Checkout</a></li>
-                            <li><a href="#">Contact</a></li>
+                            <li><a href="{% url 'website:check-out' %}">Checkout</a></li>
+                            <li><a href="{% url 'website:contact' %}">Contact</a></li>
                             <li><a href="#">Serivius</a></li>
                         </ul>
                     </div>
@@ -234,9 +234,9 @@
                         <h5>My Account</h5>
                         <ul>
                             <li><a href="#">My Account</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Shopping Cart</a></li>
-                            <li><a href="#">Shop</a></li>
+                            <li><a href="{% url 'website:contact' %}">Contact</a></li>
+                            <li><a href="{% url 'website:shopping-cart' %}">Shopping Cart</a></li>
+                            <li><a href="{% url 'website:shop' %}">Shop</a></li>
                         </ul>
                     </div>
                 </div>
