@@ -23,6 +23,23 @@
     <link rel="stylesheet" href="{% static 'css/jquery-ui.min.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'css/slicknav.min.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+
+    <style>
+        .blog-meta {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .blog-meta span {
+            margin-right: 15px;
+        }
+
+        .blog-meta i {
+            margin-right: 5px;
+            color: #ff6f61;
+        }
+    </style>
 </head>
 
 <body>
@@ -49,8 +66,9 @@
                     <a href="#" class="login-panel"><i class="fa fa-user"></i>Login</a>
                     <div class="lan-selector">
                         <select class="language_drop" name="countries" id="countries" style="width:300px;">
-                            <option value='yt' data-image="{% static 'img/flag-1.jpg' %}" data-imagecss="flag yt" data-title="English"></option>
-                                English</option>
+                            <option value='yt' data-image="{% static 'img/flag-1.jpg' %}" data-imagecss="flag yt"
+                                data-title="English"></option>
+                            English</option>
                             <option value='yu' data-image="{% static 'img/flag-2.jpg' %}" data-imagecss="flag yu"
                                 data-title="Bangladesh">German </option>
                         </select>
@@ -101,7 +119,8 @@
                                         <table>
                                             <tbody>
                                                 <tr>
-                                                    <td class="si-pic"><img src="{% static 'img/select-product-1.jpg' %}" alt=""></td>
+                                                    <td class="si-pic"><img
+                                                            src="{% static 'img/select-product-1.jpg' %}" alt=""></td>
                                                     <td class="si-text">
                                                         <div class="product-selected">
                                                             <p>$60.00 x 1</p>
@@ -113,7 +132,8 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="si-pic"><img src="{% static 'img/select-product-2.jpg' %}" alt=""></td>
+                                                    <td class="si-pic"><img
+                                                            src="{% static 'img/select-product-2.jpg' %}" alt=""></td>
                                                     <td class="si-text">
                                                         <div class="product-selected">
                                                             <p>$60.00 x 1</p>
