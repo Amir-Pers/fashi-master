@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import Http404
 from blog.models import Post, Category 
+from django.db.models import Q
 
 # Create your views here.
 
@@ -37,3 +38,18 @@ def blog_details(request, **kwargs):
     }
     return render(request, 'blog/blog-details.html', context)
 
+def blog_search(request):
+    posts = Post.objects.filter(status=1)
+
+    if  (request.method == 'GET'):
+        q = request.GET.get('s')
+        
+        posts = posts.filter(
+            Q(title__icontains=q) |
+            Q(content__icontains=q)
+        )
+        # posts = posts.filter(content__contains=request.GET.get('s'))
+
+    context = {'posts' : posts}
+
+    return render (request, 'blog/blog-home.html', context)
