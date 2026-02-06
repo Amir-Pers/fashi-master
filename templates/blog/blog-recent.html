@@ -1,0 +1,29 @@
+{% load static %}
+{% load humanize %}
+{% load blog_tags %}
+
+<div class="recent-post">
+    <h4>Recent Post</h4>
+    {% for post in posts %}
+    <div class="recent-blog">
+        <a href="{% url 'blog:blog-details' pid=post.id %}" class="rb-item">
+            <div class="rb-pic">
+                <img src="{{ post.image.url }}" alt="">
+            </div>
+            <div class="rb-text">
+                <h6>{{ post.title }}</h6>
+
+                {% for cat in post.category.all %}
+                <p>
+                    {{ cat.name }}{% if not forloop.last %}, {% endif %}
+                </p>
+                {% endfor %}
+
+                <p class="meta">
+                    <span>{{ post.published_date|naturaltime }}</span>
+                </p>
+            </div>
+        </a>
+    </div>
+    {% endfor %}
+</div>

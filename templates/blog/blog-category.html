@@ -1,0 +1,12 @@
+{% load static %}
+<div class="blog-catagory">
+    <h4>Categories</h4>
+    {% for cat, value in categories.items %}
+    <ul>
+        <a href="{% url 'blog:category' cat_name=cat.name %}" class="d-flex justify-content-between">
+            <p>{{ cat.name }}</p>
+            <p>{{ value }}</p>
+        </a>
+    </ul>
+    {% endfor %}
+</div>
