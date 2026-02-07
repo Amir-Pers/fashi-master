@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'website.apps.WebsiteConfig',
     'blog',
+
+    'taggit',
 ]
 
 MIDDLEWARE = [

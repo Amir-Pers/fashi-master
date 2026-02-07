@@ -1,5 +1,6 @@
 from django import template
 from blog.models import Post, Category
+from taggit.models import Tag
 
 register = template.Library()
 
@@ -27,4 +28,8 @@ def categories():
         if posts.filter(category=name).count() > 0:
             cat_dict[name] = posts.filter(category=name).count()
     return {'categories' : cat_dict}
-    
+
+@register.inclusion_tag('blog/blog-tag.html')
+def blog_tags():
+    tags =  Tag.objects.all().order_by('-name')
+    return {'tags' : tags}

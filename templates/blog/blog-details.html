@@ -38,9 +38,9 @@
                         <div class="details-tag">
                             <ul>
                                 <li><i class="fa fa-tags"></i></li>
-                                <li>Travel</li>
-                                <li>Beauty</li>
-                                <li>Fashion</li>
+                                {% for tag in post.tag.all %}
+                                <a href="{% url 'blog:tag' tag_name=tag.name %}"><li>{{ tag.name }}</li></a>
+                                {% endfor %}
                             </ul>
                         </div>
                         <div class="blog-share">
