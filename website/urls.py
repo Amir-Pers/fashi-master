@@ -16,6 +16,7 @@ urlpatterns = [
     path('about-us/', about_us, name='about-us'),
     path('services/', services, name='services'),
     path('my-account/', my_account, name='my-account'),
+    path('newsletter/', newsletter, name='newsletter'),
 
     path('test/', test, name='test'),
 ]
