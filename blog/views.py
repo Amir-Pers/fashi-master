@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import Http404, HttpResponseRedirect
 from blog.models import Post, Comment
-from django.db.models import Q
+from django.db.models import Q, F
 from django.contrib import messages
 from blog.forms import CommentForm
 
@@ -46,6 +46,12 @@ def blog_details(request, **kwargs):
             messages.add_message(request, messages.ERROR, 'Your comment didnt submited')
             return redirect('blog:blog-details', pid=pid)
         
+    session_key = f'viewed_post_{post.id}'
+    if not request.session.get(session_key, False):
+        Post.objects.filter(pk=post.pk).update(counted_view=F('counted_view') + 1)
+        request.session[session_key] = True
+        post.refresh_from_db()
+
     comments = Comment.objects.filter(post=post.id, approved=True)
     form = CommentForm()
 
@@ -56,6 +62,7 @@ def blog_details(request, **kwargs):
         'form' : form,
         'comments' : comments,
     }
+
     return render(request, 'blog/blog-details.html', context)
 
 def blog_search(request):
