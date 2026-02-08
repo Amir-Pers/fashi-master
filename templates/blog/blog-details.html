@@ -114,31 +114,38 @@
                             {% endif %}
                         </div>
                     </div>
+                    {% if not commnets %}
+                        <p>There is no commnet, be the frist one</p>
+                    {% endif %}
+                    {% for comment in comments %}
                     <div class="posted-by">
                         <div class="pb-pic">
-                            <img src="{% static 'img/blog/post-by.png' %}" alt="">
+                            <img src="{% static 'img/blog/comment.png' %}" alt="" style="height: 91px; width: 89px;">
                         </div>
+                        
                         <div class="pb-text">
                             <a href="#">
-                                <h5>Shane Lynch</h5>
+                                <h5>{{ comment.name }}</h5>
                             </a>
-                            <p>Aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                                velit esse cillum bore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                                amodo</p>
+                            <p>{{ comment.message }}</p>
                         </div>
+                        
                     </div>
+                    {% endfor %}
                     <div class="leave-comment">
                         <h4>Leave A Comment</h4>
-                        <form action="#" class="comment-form">
+                        <form action="{% url 'blog:blog-details' pid=post.id %}" class="comment-form" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="post" value="{{ post.id }}">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <input type="text" placeholder="Name">
+                                    <input type="text" placeholder="Name" name="name">
                                 </div>
                                 <div class="col-lg-6">
-                                    <input type="text" placeholder="Email">
+                                    <input type="text" placeholder="Email" name="email">
                                 </div>
                                 <div class="col-lg-12">
-                                    <textarea placeholder="Messages"></textarea>
+                                    <textarea placeholder="Messages" name="message"></textarea>
                                     <button type="submit" class="site-btn">Send message</button>
                                 </div>
                             </div>

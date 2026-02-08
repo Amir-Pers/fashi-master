@@ -1,7 +1,9 @@
-from django.shortcuts import render, get_object_or_404
-from django.http import Http404
-from blog.models import Post, Category 
+from django.shortcuts import render, get_object_or_404, redirect
+from django.http import Http404, HttpResponseRedirect
+from blog.models import Post, Comment
 from django.db.models import Q
+from django.contrib import messages
+from blog.forms import CommentForm
 
 # Create your views here.
 
@@ -34,10 +36,25 @@ def blog_details(request, **kwargs):
     next_post = posts.filter(published_date__gt=post.published_date).order_by('published_date').first()
     prev_post = posts.filter(published_date__lt=post.published_date).order_by('-published_date').first()
 
+    if request.method == "POST":
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.add_message(request, messages.SUCCESS, 'Your comment submited succesfully')
+            return redirect('blog:blog-details', pid=pid)
+        else:
+            messages.add_message(request, messages.ERROR, 'Your comment didnt submited')
+            return redirect('blog:blog-details', pid=pid)
+        
+    comments = Comment.objects.filter(post=post.id, approved=True)
+    form = CommentForm()
+
     context = {
         'post' : post,
         'next_post' : next_post,
         'prev_post' : prev_post,
+        'form' : form,
+        'comments' : comments,
     }
     return render(request, 'blog/blog-details.html', context)
 
