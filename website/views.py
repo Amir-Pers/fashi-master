@@ -38,11 +38,6 @@ def check_out(request):
 def faq(request):
     return render(request, 'website/faq.html')
 
-def register(request):
-    return render(request, 'website/register.html')
-
-def login(request):
-    return render(request, 'website/login.html')
 
 def product(request):
     return render(request, 'website/product.html')
@@ -52,9 +47,6 @@ def about_us(request):
 
 def services(request):
     return render(request, 'website/services.html')
-
-def my_account(request):
-    return render(request, 'website/my-account.html')
 
 
 

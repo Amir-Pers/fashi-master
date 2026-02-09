@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'website.apps.WebsiteConfig',
     'blog',
+    'accounts',
 
     'taggit',
 ]
