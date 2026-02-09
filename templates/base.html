@@ -46,7 +46,6 @@
             object-fit: cover;
             border-radius: 8px;
         }
-        
     </style>
 </head>
 
@@ -73,11 +72,13 @@
                 <div class="ht-right">
                     {% if request.user.is_authenticated %}
                     <a href="{% url 'accounts:logout' %}" class="login-panel"><i class="fa fa-user"></i>Logout</a>
+                    <a href="{% url 'accounts:my-account' %}" class="login-panel"><i class="fa fa-user"></i>My Account
+                    </a>
                     {% else %}
                     <a href="{% url 'accounts:login' %}" class="login-panel"><i class="fa fa-user"></i>Login</a>
-                    <a href="{% url 'accounts:register' %}" class="login-panel"><i class="fa fa-user"></i>signup</a>
+                    <a href="{% url 'accounts:register' %}" class="login-panel"><i class="fa fa-user"></i>Signup</a>
                     {% endif %}
-                    <div class="lan-selector">
+                    <!-- <div class="lan-selector">
                         <select class="language_drop" name="countries" id="countries" style="width:300px;">
                             <option value='yt' data-image="{% static 'img/flag-1.jpg' %}" data-imagecss="flag yt"
                                 data-title="English"></option>
@@ -85,7 +86,7 @@
                             <option value='yu' data-image="{% static 'img/flag-2.jpg' %}" data-imagecss="flag yu"
                                 data-title="Bangladesh">German </option>
                         </select>
-                    </div>
+                    </div> -->
                     <div class="top-social">
                         <a href="#"><i class="ti-facebook"></i></a>
                         <a href="#"><i class="ti-twitter-alt"></i></a>
@@ -196,8 +197,13 @@
                 </div>
                 <nav class="nav-menu mobile-menu">
                     <ul>
-                        <li class="active"><a href="{% url 'website:index' %}">Home</a></li>
-                        <li><a href="{% url 'website:shop' %}">Shop</a></li>
+                        <li
+                            class="{% if request.resolver_match.app_name == 'website' and request.resolver_match.url_name == 'index' %}active{% endif %}">
+                            <a href="{% url 'website:index' %}">Home</a>
+                        </li>
+                        <li class="{% if request.resolver_match.url_name == 'shop' %}active{% endif %}">
+                            <a href="{% url 'website:shop' %}">Shop</a>
+                        </li>
                         <li><a href="#">Collection</a>
                             <ul class="dropdown">
                                 <li><a href="#">Men's</a></li>
@@ -205,15 +211,17 @@
                                 <li><a href="#">Kid's</a></li>
                             </ul>
                         </li>
-                        <li><a href="{% url 'blog:index' %}">Blog</a></li>
-                        <li><a href="{% url 'website:contact' %}">Contact</a></li>
+                        <li class="{% if request.resolver_match.app_name == 'blog' %}active{% endif %}">
+                            <a href="{% url 'blog:index' %}">Blog</a>
+                        </li>
+                        <li class="{% if request.resolver_match.url_name == 'contact' %}active{% endif %}">
+                            <a href="{% url 'website:contact' %}">Contact</a>
+                        </li>
                         <li><a href="#">Pages</a>
                             <ul class="dropdown">
                                 <li><a href="{% url 'website:shopping-cart' %}">Shopping Cart</a></li>
                                 <li><a href="{% url 'website:check-out' %}">Checkout</a></li>
                                 <li><a href="{% url 'website:faq' %}">Faq</a></li>
-                                <li><a href="{% url 'accounts:register' %}">Register</a></li>
-                                <li><a href="{% url 'accounts:login' %}">Login</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -276,9 +284,9 @@
                     <div class="newslatter-item">
                         <h5>Join Our Newsletter Now</h5>
                         <p>Get E-mail updates about our latest shop and special offers.</p>
-                        <form action="{% url 'website:newsletter' %}" class="subscribe-form" method="POST" >
+                        <form action="{% url 'website:newsletter' %}" class="subscribe-form" method="POST">
                             {% csrf_token %}
-                            <input type="email" name="email" placeholder="Enter Your Mail"  required>
+                            <input type="email" name="email" placeholder="Enter Your Mail" required>
                             <button type="submit">Subscribe</button>
                         </form>
                     </div>

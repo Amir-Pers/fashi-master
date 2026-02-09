@@ -10,7 +10,7 @@ class EmailOrUsernameAuthenticationForm(AuthenticationForm):
         widget=forms.TextInput(attrs={'autofocus': True, 'placeholder': 'Username or Email'})
     )
     password = forms.CharField(
-    widget=forms.PasswordInput(attrs={'placeholder': 'Password'})
+        widget=forms.PasswordInput(attrs={'placeholder': 'Password'})
     )
 
 
