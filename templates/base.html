@@ -72,10 +72,10 @@
                 </div>
                 <div class="ht-right">
                     {% if request.user.is_authenticated %}
-                    <a href="{% url 'accounts:login' %}" class="login-panel"><i class="fa fa-user"></i>Logout</a>
+                    <a href="{% url 'accounts:logout' %}" class="login-panel"><i class="fa fa-user"></i>Logout</a>
                     {% else %}
                     <a href="{% url 'accounts:login' %}" class="login-panel"><i class="fa fa-user"></i>Login</a>
-                    <a href="{% url 'accounts:login' %}" class="login-panel"><i class="fa fa-user"></i>signup</a>
+                    <a href="{% url 'accounts:register' %}" class="login-panel"><i class="fa fa-user"></i>signup</a>
                     {% endif %}
                     <div class="lan-selector">
                         <select class="language_drop" name="countries" id="countries" style="width:300px;">

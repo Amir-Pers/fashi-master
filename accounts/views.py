@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from .forms import EmailOrUsernameAuthenticationForm
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required 
 
 # Create your views here.
 
@@ -25,6 +26,11 @@ def login_view(request):
         form = EmailOrUsernameAuthenticationForm()
 
     return render(request, 'accounts/login.html', {'form': form})
+
+@login_required
+def logout_view(request):
+    logout(request)
+    return redirect('website:index')
 
 
 def my_account(request):
